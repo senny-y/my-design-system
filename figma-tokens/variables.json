@@ -27,7 +27,8 @@
       {"name":"color/green/600","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-green-600)"},"values":{"Mode 1":"#067647"}},
       {"name":"color/orange/50","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-orange-50)"},"values":{"Mode 1":"#FFFAEB"}},
       {"name":"color/orange/600","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-orange-600)"},"values":{"Mode 1":"#B54708"}},
-      {"name":"color/red/700","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-red-700)"},"values":{"Mode 1":"#B42318"}}
+      {"name":"color/red/700","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-red-700)"},"values":{"Mode 1":"#B42318"}},
+      {"name":"color/neutral/300","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-neutral-300)"},"values":{"Mode 1":"#C2CAD4"}}
       ]
     },
     {
@@ -54,7 +55,8 @@
       {"name":"status/warning-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-warning-text)"},"values":{"light":{"alias":"color/orange/600","resolved":"#B54708"}}},
       {"name":"status/info-bg","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-info-bg)"},"values":{"light":{"alias":"color/primary/50","resolved":"#EEF2FF"}}},
       {"name":"status/info-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-info-text)"},"values":{"light":{"alias":"color/primary/600","resolved":"#3E46D6"}}},
-      {"name":"status/error-icon","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-error-icon)"},"values":{"light":{"alias":"color/red/600","resolved":"#D92D20"}}}
+      {"name":"status/error-icon","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-error-icon)"},"values":{"light":{"alias":"color/red/600","resolved":"#D92D20"}}},
+      {"name":"text/placeholder","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--text-placeholder)"},"values":{"light":{"alias":"color/neutral/300","resolved":"#C2CAD4"}}}
       ]
     },
     {

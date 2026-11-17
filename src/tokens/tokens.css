@@ -17,6 +17,7 @@
   --color-neutral-50: #F7F7F8;
   --color-neutral-100: #EEEEF0;
   --color-neutral-200: #DEDEE2;
+  --color-neutral-300: #C2CAD4;
   --color-neutral-400: #9A9AA3;
   --color-neutral-600: #5C5C66;
   --color-neutral-800: #2E2E35;
@@ -46,6 +47,7 @@
   --text-subtle: var(--color-neutral-600);
   --text-on-primary: var(--color-neutral-0);
   --text-disabled: var(--color-neutral-400);
+  --text-placeholder: var(--color-neutral-300);
 
   --border-default: var(--color-neutral-200);
   --border-focus: var(--color-primary-500);
