@@ -31,7 +31,8 @@ Storybook과 앱에서 var(--bg-primary), .text-body-md 로 사용
 - 숫자 변수는 px로 나옵니다. (`font-weight`만 단위 없음)
 - 텍스트 스타일은 클래스로 나옵니다. (`heading/lg` → `.text-heading-lg`)
 - 글꼴의 한글 대체 목록(Apple SD Gothic Neo, Noto Sans KR…)은 Figma에 없는 정보라서 `scripts/generate-tokens.mjs`의 `FONT_FALLBACKS`에 있습니다.
-- Storybook에서 Inter가 보이도록 `.storybook/preview-head.html`에서 글꼴을 불러옵니다. (인터넷 연결 필요)
+- Inter 글꼴은 `src/styles/fonts.css` 한 곳에서 불러옵니다. 앱(`src/main.tsx`)과 Storybook(`.storybook/preview.tsx`)이 같은 파일을 가져다 씁니다. (인터넷 연결 필요)
+  글꼴이나 굵기를 바꿀 때는 이 파일만 고치면 됩니다.
 
 ## Figma에서 다시 내보내기
 

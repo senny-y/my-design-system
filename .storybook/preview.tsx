@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/react-vite'
+import '../src/styles/fonts.css' // 글꼴 불러오기 (앱과 같은 파일)
 import '../src/tokens/tokens.css' // Figma 토큰 CSS (npm run tokens로 자동 생성)
 
 const preview: Preview = {

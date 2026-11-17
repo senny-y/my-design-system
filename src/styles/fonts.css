@@ -1,0 +1,6 @@
+/*
+ * 글꼴 불러오기 — 앱(src/main.tsx)과 Storybook(.storybook/preview.tsx)이 이 파일 하나를 함께 씁니다.
+ * 글꼴을 추가하거나 굵기를 바꿀 때는 여기만 고치세요. (Figma 텍스트 스타일에서 쓰는 굵기: 400, 600)
+ * 글꼴 이름과 한글 대체 글꼴 목록은 토큰 CSS의 --font-family-base에 있습니다.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
