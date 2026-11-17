@@ -1,0 +1,12 @@
+{
+  "name": "New Design System",
+  "version": "0.1",
+  "textStyles": [
+    {"name":"heading/lg","font":{"style":"Semi Bold"},"fontFamily":"font-family/base","fontSize":"font-size/24","lineHeight":"line-height/32","fontWeight":"font-weight/600"},
+    {"name":"heading/md","font":{"style":"Semi Bold"},"fontFamily":"font-family/base","fontSize":"font-size/20","lineHeight":"line-height/28","fontWeight":"font-weight/600"},
+    {"name":"body/md","font":{"style":"Regular"},"fontFamily":"font-family/base","fontSize":"font-size/16","lineHeight":"line-height/24","fontWeight":"font-weight/400"},
+    {"name":"body/sm","font":{"style":"Regular"},"fontFamily":"font-family/base","fontSize":"font-size/14","lineHeight":"line-height/20","fontWeight":"font-weight/400"},
+    {"name":"label/md","font":{"style":"Semi Bold"},"fontFamily":"font-family/base","fontSize":"font-size/14","lineHeight":"line-height/20","fontWeight":"font-weight/600"},
+    {"name":"label/sm","font":{"style":"Semi Bold"},"fontFamily":"font-family/base","fontSize":"font-size/12","lineHeight":"line-height/16","fontWeight":"font-weight/600"}
+  ]
+}

@@ -1,4 +1,5 @@
-// Figma 변수(figma-tokens/variables.json) → 토큰 CSS(src/tokens/tokens.css) 자동 변환
+// Figma 변수(figma-tokens/variables.json) + 텍스트 스타일(figma-tokens/text-styles.json)
+// → 토큰 CSS(src/tokens/tokens.css) 자동 변환
 // 실행: npm run tokens
 
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
@@ -7,10 +8,16 @@ import { fileURLToPath } from 'node:url'
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const SOURCE = 'figma-tokens/variables.json'
+const TEXT_STYLES_SOURCE = 'figma-tokens/text-styles.json'
 const OUTPUT = 'src/tokens/tokens.css'
 
 // px가 아니라 숫자 그대로 쓰는 변수 그룹 (font-weight)
 const UNITLESS_GROUPS = new Set(['font-weight'])
+
+// 글꼴 변수 뒤에 붙일 대체 글꼴 (Figma에는 없고 CSS에만 필요) — 한글 글꼴 대비
+const FONT_FALLBACKS = {
+  'font-family/base': '"Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif',
+}
 
 const fail = (message) => {
   console.error(`✗ ${message}`)
@@ -18,6 +25,7 @@ const fail = (message) => {
 }
 
 const data = JSON.parse(readFileSync(resolve(ROOT, SOURCE), 'utf8'))
+const textStyleData = JSON.parse(readFileSync(resolve(ROOT, TEXT_STYLES_SOURCE), 'utf8'))
 
 // ---------- 변수 색인 + CSS 이름 (Code syntax와 똑같이) ----------
 const byName = new Map()
@@ -49,6 +57,12 @@ const toCssValue = (variable, modeName) => {
     return `var(${target.cssName})` // 값을 복사하지 않고 참조
   }
   if (variable.type === 'COLOR') return String(raw)
+  if (variable.type === 'STRING') {
+    // 글꼴 이름은 따옴표로 감싸고, 대체 글꼴이 정해져 있으면 뒤에 붙임
+    const fallback = FONT_FALLBACKS[variable.name]
+    if (variable.name.startsWith('font-family/') && !fallback) fail(`${variable.name}: 대체 글꼴(FONT_FALLBACKS)이 정해지지 않았어요`)
+    return fallback ? `"${raw}", ${fallback}` : `"${raw}"`
+  }
   if (variable.type === 'FLOAT') {
     const group = variable.name.split('/')[0]
     return UNITLESS_GROUPS.has(group) ? String(raw) : `${raw}px`
@@ -81,7 +95,7 @@ const modeSelector = (modeName, index, total) => {
 const out = []
 out.push(`/*
  * 자동 생성 · 직접 수정 금지
- * 원본 파일: ${SOURCE}
+ * 원본 파일: ${SOURCE}, ${TEXT_STYLES_SOURCE}
  * 다시 만들기: npm run tokens
  */`)
 
@@ -98,7 +112,7 @@ for (const collection of data.collections) {
 }
 
 // 텍스트 스타일 → CSS 클래스 (예: heading/lg → .text-heading-lg)
-const textStyles = data.textStyles ?? []
+const textStyles = textStyleData.textStyles ?? []
 if (textStyles.length) {
   const blocks = textStyles.map((style) => {
     const ref = (name, expectedGroup) => {
@@ -107,9 +121,9 @@ if (textStyles.length) {
       return `var(${target.cssName})`
     }
     const className = `.text-${style.name.replaceAll('/', '-')}`
-    return `${className} {\n  font-size: ${ref(style.fontSize, 'font-size')};\n  line-height: ${ref(style.lineHeight, 'line-height')};\n  font-weight: ${ref(style.fontWeight, 'font-weight')};\n}`
+    return `${className} {\n  font-family: ${ref(style.fontFamily, 'font-family')};\n  font-size: ${ref(style.fontSize, 'font-size')};\n  line-height: ${ref(style.lineHeight, 'line-height')};\n  font-weight: ${ref(style.fontWeight, 'font-weight')};\n}`
   })
-  out.push(`\n/* 텍스트 스타일 · font-family는 Figma 변수가 없어 포함하지 않음 */\n${blocks.join('\n\n')}`)
+  out.push(`\n/* 텍스트 스타일 */\n${blocks.join('\n\n')}`)
 }
 
 const css = `${out.join('\n')}\n`

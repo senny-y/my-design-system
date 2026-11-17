@@ -1,6 +1,6 @@
 /*
  * 자동 생성 · 직접 수정 금지
- * 원본 파일: figma-tokens/variables.json
+ * 원본 파일: figma-tokens/variables.json, figma-tokens/text-styles.json
  * 다시 만들기: npm run tokens
  */
 
@@ -97,38 +97,49 @@
   --size-24: 24px;
 }
 
-/* 텍스트 스타일 · font-family는 Figma 변수가 없어 포함하지 않음 */
+/* typography · 모드: Mode 1 */
+:root {
+  --font-family-base: "Inter", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+}
+
+/* 텍스트 스타일 */
 .text-heading-lg {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-24);
   line-height: var(--line-height-32);
   font-weight: var(--font-weight-600);
 }
 
 .text-heading-md {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-20);
   line-height: var(--line-height-28);
   font-weight: var(--font-weight-600);
 }
 
 .text-body-md {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-16);
   line-height: var(--line-height-24);
   font-weight: var(--font-weight-400);
 }
 
 .text-body-sm {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   font-weight: var(--font-weight-400);
 }
 
 .text-label-md {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-14);
   line-height: var(--line-height-20);
   font-weight: var(--font-weight-600);
 }
 
 .text-label-sm {
+  font-family: var(--font-family-base);
   font-size: var(--font-size-12);
   line-height: var(--line-height-16);
   font-weight: var(--font-weight-600);

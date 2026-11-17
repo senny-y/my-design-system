@@ -88,14 +88,13 @@
       {"name":"size/20","type":"FLOAT","scopes":["WIDTH_HEIGHT"],"codeSyntax":{"web":"var(--size-20)"},"values":{"Mode 1":20}},
       {"name":"size/24","type":"FLOAT","scopes":["WIDTH_HEIGHT"],"codeSyntax":{"web":"var(--size-24)"},"values":{"Mode 1":24}}
       ]
+    },
+    {
+      "name": "typography",
+      "modes": ["Mode 1"],
+      "variables": [
+      {"name":"font-family/base","type":"STRING","scopes":["FONT_FAMILY"],"codeSyntax":{"web":"var(--font-family-base)"},"values":{"Mode 1":"Inter"}}
+      ]
     }
-  ],
-  "textStyles": [
-    {"name":"heading/lg","font":{"family":"Inter","style":"Semi Bold"},"fontSize":"font-size/24","lineHeight":"line-height/32","fontWeight":"font-weight/600"},
-    {"name":"heading/md","font":{"family":"Inter","style":"Semi Bold"},"fontSize":"font-size/20","lineHeight":"line-height/28","fontWeight":"font-weight/600"},
-    {"name":"body/md","font":{"family":"Inter","style":"Regular"},"fontSize":"font-size/16","lineHeight":"line-height/24","fontWeight":"font-weight/400"},
-    {"name":"body/sm","font":{"family":"Inter","style":"Regular"},"fontSize":"font-size/14","lineHeight":"line-height/20","fontWeight":"font-weight/400"},
-    {"name":"label/md","font":{"family":"Inter","style":"Semi Bold"},"fontSize":"font-size/14","lineHeight":"line-height/20","fontWeight":"font-weight/600"},
-    {"name":"label/sm","font":{"family":"Inter","style":"Semi Bold"},"fontSize":"font-size/12","lineHeight":"line-height/16","fontWeight":"font-weight/600"}
   ]
 }
