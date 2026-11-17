@@ -33,14 +33,14 @@
     "vite": "^8.3.6",
     "storybook": "^10.6.7",
     "@storybook/react-vite": "^10.6.7",
-    "@chromatic-com/storybook": "latest",
+    "@chromatic-com/storybook": "5.6.0",
     "@storybook/addon-vitest": "^10.6.7",
     "@storybook/addon-a11y": "^10.6.7",
     "@storybook/addon-docs": "^10.6.7",
     "@storybook/addon-mcp": "^10.6.7",
-    "vitest": "latest",
-    "@vitest/browser-playwright": "latest",
-    "@vitest/coverage-v8": "latest",
-    "playwright": "latest"
+    "vitest": "5.1.0",
+    "@vitest/browser-playwright": "5.1.0",
+    "@vitest/coverage-v8": "5.1.0",
+    "playwright": "1.65.1"
   }
 }
