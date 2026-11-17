@@ -1,0 +1,114 @@
+/*
+ * Button 스타일 — Figma Button 컴포넌트와 같은 값
+ * 색은 semantic 토큰(--bg-*, --text-*, --border-*)만, 간격·radius·크기는 dimension 토큰만 사용합니다.
+ * 글자(글꼴·크기·줄 높이·굵기)는 Button.tsx에서 붙이는 .text-label-md 클래스가 담당합니다.
+ * 예외로 직접 적은 값은 아래에 "예외"라고 표시했습니다.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  box-sizing: border-box;
+  padding-block: 0;
+  border: 0;
+  border-radius: var(--radius-8);
+  background: none;
+  color: var(--text-default);
+  cursor: pointer;
+}
+
+/* size — Figma: sm 높이 spacing/32 · 좌우 spacing/12, md 높이 spacing/40 · 좌우 spacing/16 */
+.button[data-size='sm'] {
+  height: var(--spacing-32);
+  padding-inline: var(--spacing-12);
+}
+
+.button[data-size='md'] {
+  height: var(--spacing-40);
+  padding-inline: var(--spacing-16);
+}
+
+/* variant */
+.button[data-variant='primary'] {
+  background: var(--bg-primary);
+  color: var(--text-on-primary);
+}
+
+.button[data-variant='secondary'] {
+  background: var(--bg-default);
+  color: var(--text-default);
+  /* Figma의 "안쪽 테두리"와 같게: 버튼 크기가 변하지 않도록 border 대신 inset 그림자 사용 */
+  box-shadow: inset 0 0 0 var(--spacing-1) var(--border-default);
+}
+
+.button[data-variant='ghost'] {
+  background: none;
+  color: var(--text-default);
+}
+
+/* state: hover — Figma: primary는 bg/primary-hover, secondary·ghost는 bg/subtle */
+.button[data-variant='primary']:hover:not(:disabled) {
+  background: var(--bg-primary-hover);
+}
+
+.button[data-variant='secondary']:hover:not(:disabled),
+.button[data-variant='ghost']:hover:not(:disabled) {
+  background: var(--bg-subtle);
+}
+
+/* state: focus — 키보드로 포커스했을 때만(focus-visible), border/focus 2px 안쪽 테두리 */
+.button:focus-visible {
+  outline: var(--spacing-2) solid var(--border-focus);
+  outline-offset: calc(var(--spacing-2) * -1);
+}
+
+/* disabled — Figma: 배경 bg/disabled, 글자 text/disabled. secondary는 테두리 유지, ghost는 배경 없음 */
+.button:disabled {
+  color: var(--text-disabled);
+  cursor: not-allowed;
+}
+
+.button[data-variant='primary']:disabled,
+.button[data-variant='secondary']:disabled {
+  background: var(--bg-disabled);
+}
+
+.button[data-variant='ghost']:disabled {
+  background: none;
+}
+
+/* loading — 스피너가 보이고 클릭은 막힘(Button.tsx). 진행 중이라는 표시로 커서만 바꿈 */
+.button[data-loading] {
+  cursor: progress;
+}
+
+/* 스피너: 크기는 size/16, 색은 글자색을 그대로 따라감(currentColor → disabled이면 text/disabled) */
+.spinner {
+  /* 예외: 스피너 두께 2px — Figma에서도 변수 연결이 안 되는 값이라(고리 안쪽 비율 0.75로 고정) 토큰이 없음 */
+  --button-spinner-thickness: 2px;
+
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: var(--size-16);
+  height: var(--size-16);
+  border: var(--button-spinner-thickness) solid currentColor;
+  border-right-color: transparent; /* 한쪽을 비워 270° 고리 모양 */
+  border-radius: var(--radius-999);
+  /* 예외: 회전 속도(0.8초)는 디자인 토큰이 없는 동작 값 */
+  animation: button-spin 0.8s linear infinite;
+}
+
+@keyframes button-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 움직임을 줄이도록 설정한 사용자에게는 회전하지 않고 고정된 고리만 보여줌 */
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+}
