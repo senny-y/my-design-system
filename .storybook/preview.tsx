@@ -4,8 +4,8 @@ import '../src/tokens/tokens.css' // Figma 토큰 CSS (npm run tokens로 자동 
 
 const preview: Preview = {
   parameters: {
-    // 사이드바 순서: 기초(Foundations) → 컴포넌트 → 토큰 확인용
-    options: { storySort: { order: ['Foundations', 'Components', 'Tokens'] } },
+    // 사이드바 순서: 기초(Foundations) → 컴포넌트
+    options: { storySort: { order: ['Foundations', 'Components'] } },
 
     controls: {
       matchers: {
