@@ -35,13 +35,44 @@ export interface TokenRow {
   cssName: string
   codeSyntax: string
   value: string
+  /** 모드가 둘 이상인 변수(semantic: light·dark)의 모드별 값 */
+  modes?: ModeValue[]
+}
+
+export interface ModeValue {
+  name: string
+  /** 참조하는 primitive의 Figma 이름 (예: color/neutral/0) */
+  ref: string
+  /** 실제 색 (예: #FFFFFF) */
+  hex: string
+  /** 견본을 그릴 primitive의 Code syntax (예: var(--color-neutral-0)) — 모드와 상관없이 항상 같은 색 */
+  swatch: string | null
+}
+
+const swatchBox: CSSProperties = {
+  display: 'block',
+  width: 'var(--size-24)',
+  height: 'var(--size-24)',
+  borderRadius: 'var(--radius-4)',
+  boxShadow: 'inset 0 0 0 var(--spacing-1) var(--border-default)',
+}
+
+// light / dark 견본을 나란히 (현재 Storybook이 어떤 모드든 두 색 모두 보임)
+function ModeSwatches({ modes }: { modes: ModeValue[] }) {
+  return (
+    <span style={{ display: 'flex', gap: 'var(--spacing-8)' }}>
+      {modes.map((mode) => (
+        <span key={mode.name} role="img" aria-label={`${mode.name} ${mode.hex}`} title={`${mode.name} ${mode.hex}`} style={{ ...swatchBox, background: mode.swatch ?? 'none' }} />
+      ))}
+    </span>
+  )
 }
 
 function Sample({ kind, codeSyntax }: { kind: TokenKind; codeSyntax: string }) {
   const box: CSSProperties = { display: 'block', width: 'var(--size-24)', height: 'var(--size-24)' }
   switch (kind) {
     case 'color':
-      return <span style={{ ...box, borderRadius: 'var(--radius-4)', background: codeSyntax, boxShadow: 'inset 0 0 0 var(--spacing-1) var(--border-default)' }} />
+      return <span style={{ ...swatchBox, background: codeSyntax }} />
     case 'spacing':
       return <span style={{ display: 'block', width: codeSyntax, height: 'var(--size-16)', background: 'var(--bg-primary)' }} />
     case 'radius':
@@ -60,13 +91,12 @@ function Sample({ kind, codeSyntax }: { kind: TokenKind; codeSyntax: string }) {
 }
 
 export function TokenTable({ kind, rows }: { kind: TokenKind; rows: TokenRow[] }) {
+  const hasModes = rows.some((row) => row.modes)
   return (
-    <Table headers={['견본', 'Figma 이름', '코드 이름', 'Code syntax', '값 / 참조']}>
+    <Table headers={[hasModes ? '견본 (light · dark)' : '견본', 'Figma 이름', '코드 이름', 'Code syntax', hasModes ? '모드별 값 / 참조' : '값 / 참조']}>
       {rows.map((row) => (
         <tr key={row.figmaName}>
-          <td style={cellStyle}>
-            <Sample kind={kind} codeSyntax={row.codeSyntax} />
-          </td>
+          <td style={cellStyle}>{row.modes ? <ModeSwatches modes={row.modes} /> : <Sample kind={kind} codeSyntax={row.codeSyntax} />}</td>
           <td style={cellStyle} className="text-body-sm">
             {row.figmaName}
           </td>
@@ -77,7 +107,13 @@ export function TokenTable({ kind, rows }: { kind: TokenKind; rows: TokenRow[] }
             <code>{row.codeSyntax}</code>
           </td>
           <td style={cellStyle} className="text-body-sm">
-            {row.value}
+            {row.modes
+              ? row.modes.map((mode) => (
+                  <div key={mode.name}>
+                    <strong>{mode.name}</strong> · {mode.ref.replace('color/', '')} → {mode.hex}
+                  </div>
+                ))
+              : row.value}
           </td>
         </tr>
       ))}

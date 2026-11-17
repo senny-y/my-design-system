@@ -1,0 +1,13 @@
+/* Storybook 화면(스토리 캔버스, 문서 페이지) 바탕을 토큰 색으로 — 라이트/다크 전환 시 같이 바뀝니다. */
+body,
+.sb-show-main,
+html .sbdocs-wrapper {
+  /* html을 앞에 붙인 것은 Storybook 문서 기본 배경(우선순위가 낮은 색)보다 이 규칙이 이기도록 하기 위함 */
+  background: var(--bg-default);
+  color: var(--text-default);
+}
+
+/* 다크일 때 브라우저 기본 부품(스크롤바, 입력 커서 등)도 어둡게 */
+[data-theme='dark'] {
+  color-scheme: dark;
+}

@@ -10,12 +10,12 @@ Figma 원본 파일은 이 저장소에 들어 있지 않습니다. 저장소에
 
 ## 들어 있는 것
 
-### 토큰 (Figma 변수 71개 + 텍스트 스타일 6개)
+### 토큰 (Figma 변수 79개 + 텍스트 스타일 6개)
 
 | 컬렉션 | 개수 | 내용 |
 |---|---|---|
-| primitive | 21 | 원본 색 (primary, neutral, red, green, orange) |
-| semantic | 21 | 용도별 색 (bg, text, border, status). primitive를 참조하며, 모드는 light 하나 |
+| primitive | 28 | 원본 색 (primary, neutral, red, green, orange) |
+| semantic | 22 | 용도별 색 (bg, text, border, status). primitive를 참조하며, 모드는 light와 dark |
 | dimension | 28 | spacing, radius, size, font-size, line-height, font-weight |
 | typography | 1 | font-family |
 
@@ -102,7 +102,8 @@ Storybook·앱에서 var(--bg-primary), .text-body-md 로 사용
 - CSS 변수 이름은 Figma 변수의 Code syntax와 똑같습니다. (예: `color/primary/600` → `var(--color-primary-600)`)
 - semantic 변수는 값을 복사하지 않고 primitive를 참조합니다. (`--bg-primary: var(--color-primary-600)`)
 - 숫자 변수는 px로 나옵니다. (`font-weight`만 단위 없음)
-- semantic은 모드별로 나눠 출력합니다. 지금은 light만 있고(`:root`, `[data-theme="light"]`), Figma에 모드가 추가되면 `[data-theme="모드이름"]` 블록이 자동으로 생깁니다.
+- semantic은 모드별로 나눠 출력합니다. light는 `:root`와 `[data-theme="light"]`, dark는 `[data-theme="dark"]`로 적용됩니다. Figma에 모드가 더 추가되면 `[data-theme="모드이름"]` 블록이 자동으로 생깁니다.
+- 다크로 바꾸려면 `<html data-theme="dark">`처럼 속성을 지정합니다. Storybook에서는 위쪽 도구 막대의 "모드" 버튼(라이트/다크)이 이 속성을 바꿔 줍니다. 앱(`src/App.tsx`)에는 전환 버튼이 아직 없습니다.
 - 글꼴의 한글 대체 목록(Apple SD Gothic Neo, Noto Sans KR 등)은 Figma에 없는 정보라서 `scripts/generate-tokens.mjs`의 `FONT_FALLBACKS`에 있습니다.
 - Inter 글꼴은 `src/styles/fonts.css`에서 Google Fonts로 불러옵니다. (인터넷 연결 필요, 앱과 Storybook이 같은 파일을 사용)
 
@@ -228,7 +229,8 @@ Figma 파일 <파일 링크>에서 변수, 텍스트 스타일, 컴포넌트를 
 
 ## 알려진 한계
 
-- 컴포넌트는 4개이고, 색 모드는 light 하나입니다. 앱 화면은 안내 문구만 있습니다.
+- 컴포넌트는 4개이고, 색 모드는 light와 dark 두 개입니다. 앱 화면은 안내 문구만 있고 모드 전환 버튼은 없습니다.
+- 다크 모드에서 Button primary의 focus 테두리(`border/focus`)가 버튼 배경(`bg/primary`)과 같은 색(primary/300)이라 보이지 않습니다. Figma 쪽 결정을 기다리고 있습니다.
 - 글꼴은 Pretendard를 쓸 수 없는 환경이어서 Inter로 만들었습니다.
 - 접근성 검사(Storybook의 axe)에서 알려진 예외가 있습니다.
   - disabled 상태의 글자는 명도 대비가 4.5:1보다 낮습니다. 비활성 요소는 WCAG 대비 기준의 예외로 보고 그대로 두었습니다. (Button, Input)

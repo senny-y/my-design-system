@@ -24,14 +24,20 @@
   --color-neutral-900: #18181C;
 
   --color-red-50: #FEF2F2;
+  --color-red-300: #FDA29B;
   --color-red-600: #D92D20;
   --color-red-700: #B42318;
+  --color-red-900: #7A271A;
 
   --color-green-50: #ECFDF3;
+  --color-green-300: #6CE9A6;
   --color-green-600: #067647;
+  --color-green-900: #054F31;
 
   --color-orange-50: #FFFAEB;
+  --color-orange-300: #FEC84B;
   --color-orange-600: #B54708;
+  --color-orange-900: #7A2E0E;
 }
 
 /* semantic · 모드: light */
@@ -62,6 +68,35 @@
   --status-info-bg: var(--color-primary-50);
   --status-info-text: var(--color-primary-600);
   --status-error-icon: var(--color-red-600);
+}
+
+/* semantic · 모드: dark */
+[data-theme="dark"] {
+  --bg-default: var(--color-neutral-900);
+  --bg-subtle: var(--color-neutral-800);
+  --bg-primary: var(--color-primary-300);
+  --bg-primary-hover: var(--color-primary-100);
+  --bg-disabled: var(--color-neutral-800);
+
+  --text-default: var(--color-neutral-0);
+  --text-subtle: var(--color-neutral-400);
+  --text-on-primary: var(--color-neutral-900);
+  --text-disabled: var(--color-neutral-600);
+  --text-placeholder: var(--color-neutral-600);
+
+  --border-default: var(--color-neutral-600);
+  --border-focus: var(--color-primary-300);
+  --border-error: var(--color-red-300);
+
+  --status-success-bg: var(--color-green-900);
+  --status-success-text: var(--color-green-300);
+  --status-error-bg: var(--color-red-900);
+  --status-error-text: var(--color-red-300);
+  --status-warning-bg: var(--color-orange-900);
+  --status-warning-text: var(--color-orange-300);
+  --status-info-bg: var(--color-primary-700);
+  --status-info-text: var(--color-primary-300);
+  --status-error-icon: var(--color-red-300);
 }
 
 /* dimension · 모드: Mode 1 */

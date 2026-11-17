@@ -53,12 +53,22 @@ export function parseRules(markdown) {
 export const rulesPath = (cfg, name) => join(cfg.guide.rulesDir, `${name}.md`)
 
 // ---------- Foundations 데이터 ----------
-function tokenRows(variables) {
+// codeSyntaxOf: Figma 변수 이름 → Code syntax (모드별 견본 색을 primitive CSS 변수로 그리기 위해 필요)
+function tokenRows(variables, codeSyntaxOf = () => null) {
   return variables.map((v) => {
     const raw = Object.values(v.values)[0]
     const value = typeof raw === 'object' ? `${raw.alias} → ${raw.resolved ?? ''}` : typeof raw === 'number' ? (v.name.startsWith('font-weight/') ? String(raw) : `${raw}px`) : String(raw)
     const cssName = v.codeSyntax.web.replace(/^var\(/, '').replace(/\)$/, '')
-    return { figmaName: v.name, cssName, codeSyntax: v.codeSyntax.web, value }
+    const row = { figmaName: v.name, cssName, codeSyntax: v.codeSyntax.web, value }
+    // 모드가 둘 이상이면(light/dark) 모드별 참조·색·견본(primitive CSS 변수)을 함께 보여줌
+    const modeNames = Object.keys(v.values)
+    if (modeNames.length > 1) {
+      row.modes = modeNames.map((name) => {
+        const m = v.values[name]
+        return { name, ref: m.alias, hex: m.resolved, swatch: codeSyntaxOf(m.alias) }
+      })
+    }
+    return row
   })
 }
 
@@ -69,16 +79,17 @@ function foundationsPages(root, cfg) {
   const styleData = readJson(root, cfg.tokens.textStyles)
   const all = data.collections.flatMap((c) => c.variables.map((v) => ({ ...v, collection: c.name })))
   const group = (prefix) => all.filter((v) => v.name.startsWith(prefix))
+  const codeSyntaxOf = (name) => all.find((v) => v.name === name)?.codeSyntax.web ?? null
   const imports = "import { Meta } from '@storybook/addon-docs/blocks'\nimport { TokenTable, TextStyleTable } from '../GuideBlocks'"
   const pages = []
 
   // 색
-  const colorSection = (title, intro, vars, groups) => `## ${title}\n\n${intro}\n\n${groups.map((g) => `### ${g.label}\n\n<TokenTable kind="color" rows={${js(tokenRows(g.vars))}} />`).join('\n\n')}`
+  const colorSection = (title, intro, vars, groups) => `## ${title}\n\n${intro}\n\n${groups.map((g) => `### ${g.label}\n\n<TokenTable kind="color" rows={${js(tokenRows(g.vars, codeSyntaxOf))}} />`).join('\n\n')}`
   const primGroups = ['primary', 'neutral', 'red', 'green', 'orange'].map((g) => ({ label: g, vars: sortNumeric(group(`color/${g}/`)) }))
   const semGroups = ['bg', 'text', 'border', 'status'].map((g) => ({ label: g, vars: group(`${g}/`) }))
   pages.push({
     file: 'Foundations-Colors.mdx',
-    content: mdx('Foundations/Colors', imports, `# Colors\n\nFigma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니다. 견본의 색은 실제 토큰 CSS에서 가져옵니다.\n\n${colorSection('primitive', '원본 색상 값입니다. 컴포넌트에서는 직접 쓰지 않고 semantic을 통해서만 씁니다.', null, primGroups)}\n\n${colorSection('semantic', '용도별 이름입니다. 값은 primitive를 참조합니다. (모드: light)', null, semGroups)}`),
+    content: mdx('Foundations/Colors', imports, `# Colors\n\nFigma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니다. 견본의 색은 실제 토큰 CSS에서 가져옵니다.\n\n${colorSection('primitive', '원본 색상 값입니다. 컴포넌트에서는 직접 쓰지 않고 semantic을 통해서만 씁니다.', null, primGroups)}\n\n${colorSection('semantic', '용도별 이름입니다. 값은 primitive를 참조합니다. 견본은 왼쪽이 light, 오른쪽이 dark입니다. (Storybook 위쪽 도구 막대에서 모드를 바꾸면 화면 전체가 바뀝니다)', null, semGroups)}`),
   })
 
   const simple = (file, title, heading, intro, prefix, kind, sorted = true) => {

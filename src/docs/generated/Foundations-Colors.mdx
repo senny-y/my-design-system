@@ -123,6 +123,12 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "value": "#FEF2F2"
   },
   {
+    "figmaName": "color/red/300",
+    "cssName": "--color-red-300",
+    "codeSyntax": "var(--color-red-300)",
+    "value": "#FDA29B"
+  },
+  {
     "figmaName": "color/red/600",
     "cssName": "--color-red-600",
     "codeSyntax": "var(--color-red-600)",
@@ -133,6 +139,12 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "cssName": "--color-red-700",
     "codeSyntax": "var(--color-red-700)",
     "value": "#B42318"
+  },
+  {
+    "figmaName": "color/red/900",
+    "cssName": "--color-red-900",
+    "codeSyntax": "var(--color-red-900)",
+    "value": "#7A271A"
   }
 ]} />
 
@@ -146,10 +158,22 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "value": "#ECFDF3"
   },
   {
+    "figmaName": "color/green/300",
+    "cssName": "--color-green-300",
+    "codeSyntax": "var(--color-green-300)",
+    "value": "#6CE9A6"
+  },
+  {
     "figmaName": "color/green/600",
     "cssName": "--color-green-600",
     "codeSyntax": "var(--color-green-600)",
     "value": "#067647"
+  },
+  {
+    "figmaName": "color/green/900",
+    "cssName": "--color-green-900",
+    "codeSyntax": "var(--color-green-900)",
+    "value": "#054F31"
   }
 ]} />
 
@@ -163,16 +187,28 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "value": "#FFFAEB"
   },
   {
+    "figmaName": "color/orange/300",
+    "cssName": "--color-orange-300",
+    "codeSyntax": "var(--color-orange-300)",
+    "value": "#FEC84B"
+  },
+  {
     "figmaName": "color/orange/600",
     "cssName": "--color-orange-600",
     "codeSyntax": "var(--color-orange-600)",
     "value": "#B54708"
+  },
+  {
+    "figmaName": "color/orange/900",
+    "cssName": "--color-orange-900",
+    "codeSyntax": "var(--color-orange-900)",
+    "value": "#7A2E0E"
   }
 ]} />
 
 ## semantic
 
-용도별 이름입니다. 값은 primitive를 참조합니다. (모드: light)
+용도별 이름입니다. 값은 primitive를 참조합니다. 견본은 왼쪽이 light, 오른쪽이 dark입니다. (Storybook 위쪽 도구 막대에서 모드를 바꾸면 화면 전체가 바뀝니다)
 
 ### bg
 
@@ -181,31 +217,101 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "figmaName": "bg/default",
     "cssName": "--bg-default",
     "codeSyntax": "var(--bg-default)",
-    "value": "color/neutral/0 → #FFFFFF"
+    "value": "color/neutral/0 → #FFFFFF",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/0",
+        "hex": "#FFFFFF",
+        "swatch": "var(--color-neutral-0)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/900",
+        "hex": "#18181C",
+        "swatch": "var(--color-neutral-900)"
+      }
+    ]
   },
   {
     "figmaName": "bg/subtle",
     "cssName": "--bg-subtle",
     "codeSyntax": "var(--bg-subtle)",
-    "value": "color/neutral/50 → #F7F7F8"
+    "value": "color/neutral/50 → #F7F7F8",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/50",
+        "hex": "#F7F7F8",
+        "swatch": "var(--color-neutral-50)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/800",
+        "hex": "#2E2E35",
+        "swatch": "var(--color-neutral-800)"
+      }
+    ]
   },
   {
     "figmaName": "bg/primary",
     "cssName": "--bg-primary",
     "codeSyntax": "var(--bg-primary)",
-    "value": "color/primary/600 → #3E46D6"
+    "value": "color/primary/600 → #3E46D6",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/primary/600",
+        "hex": "#3E46D6",
+        "swatch": "var(--color-primary-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/primary/300",
+        "hex": "#A5B4FC",
+        "swatch": "var(--color-primary-300)"
+      }
+    ]
   },
   {
     "figmaName": "bg/primary-hover",
     "cssName": "--bg-primary-hover",
     "codeSyntax": "var(--bg-primary-hover)",
-    "value": "color/primary/700 → #3036B0"
+    "value": "color/primary/700 → #3036B0",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/primary/700",
+        "hex": "#3036B0",
+        "swatch": "var(--color-primary-700)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/primary/100",
+        "hex": "#E0E7FF",
+        "swatch": "var(--color-primary-100)"
+      }
+    ]
   },
   {
     "figmaName": "bg/disabled",
     "cssName": "--bg-disabled",
     "codeSyntax": "var(--bg-disabled)",
-    "value": "color/neutral/100 → #EEEEF0"
+    "value": "color/neutral/100 → #EEEEF0",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/100",
+        "hex": "#EEEEF0",
+        "swatch": "var(--color-neutral-100)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/800",
+        "hex": "#2E2E35",
+        "swatch": "var(--color-neutral-800)"
+      }
+    ]
   }
 ]} />
 
@@ -216,31 +322,101 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "figmaName": "text/default",
     "cssName": "--text-default",
     "codeSyntax": "var(--text-default)",
-    "value": "color/neutral/900 → #18181C"
+    "value": "color/neutral/900 → #18181C",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/900",
+        "hex": "#18181C",
+        "swatch": "var(--color-neutral-900)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/0",
+        "hex": "#FFFFFF",
+        "swatch": "var(--color-neutral-0)"
+      }
+    ]
   },
   {
     "figmaName": "text/subtle",
     "cssName": "--text-subtle",
     "codeSyntax": "var(--text-subtle)",
-    "value": "color/neutral/600 → #5C5C66"
+    "value": "color/neutral/600 → #5C5C66",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/600",
+        "hex": "#5C5C66",
+        "swatch": "var(--color-neutral-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/400",
+        "hex": "#9A9AA3",
+        "swatch": "var(--color-neutral-400)"
+      }
+    ]
   },
   {
     "figmaName": "text/on-primary",
     "cssName": "--text-on-primary",
     "codeSyntax": "var(--text-on-primary)",
-    "value": "color/neutral/0 → #FFFFFF"
+    "value": "color/neutral/0 → #FFFFFF",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/0",
+        "hex": "#FFFFFF",
+        "swatch": "var(--color-neutral-0)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/900",
+        "hex": "#18181C",
+        "swatch": "var(--color-neutral-900)"
+      }
+    ]
   },
   {
     "figmaName": "text/disabled",
     "cssName": "--text-disabled",
     "codeSyntax": "var(--text-disabled)",
-    "value": "color/neutral/400 → #9A9AA3"
+    "value": "color/neutral/400 → #9A9AA3",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/400",
+        "hex": "#9A9AA3",
+        "swatch": "var(--color-neutral-400)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/600",
+        "hex": "#5C5C66",
+        "swatch": "var(--color-neutral-600)"
+      }
+    ]
   },
   {
     "figmaName": "text/placeholder",
     "cssName": "--text-placeholder",
     "codeSyntax": "var(--text-placeholder)",
-    "value": "color/neutral/300 → #C2CAD4"
+    "value": "color/neutral/300 → #C2CAD4",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/300",
+        "hex": "#C2CAD4",
+        "swatch": "var(--color-neutral-300)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/600",
+        "hex": "#5C5C66",
+        "swatch": "var(--color-neutral-600)"
+      }
+    ]
   }
 ]} />
 
@@ -251,19 +427,61 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "figmaName": "border/default",
     "cssName": "--border-default",
     "codeSyntax": "var(--border-default)",
-    "value": "color/neutral/200 → #DEDEE2"
+    "value": "color/neutral/200 → #DEDEE2",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/neutral/200",
+        "hex": "#DEDEE2",
+        "swatch": "var(--color-neutral-200)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/neutral/600",
+        "hex": "#5C5C66",
+        "swatch": "var(--color-neutral-600)"
+      }
+    ]
   },
   {
     "figmaName": "border/focus",
     "cssName": "--border-focus",
     "codeSyntax": "var(--border-focus)",
-    "value": "color/primary/500 → #5B67F1"
+    "value": "color/primary/500 → #5B67F1",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/primary/500",
+        "hex": "#5B67F1",
+        "swatch": "var(--color-primary-500)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/primary/300",
+        "hex": "#A5B4FC",
+        "swatch": "var(--color-primary-300)"
+      }
+    ]
   },
   {
     "figmaName": "border/error",
     "cssName": "--border-error",
     "codeSyntax": "var(--border-error)",
-    "value": "color/red/600 → #D92D20"
+    "value": "color/red/600 → #D92D20",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/red/600",
+        "hex": "#D92D20",
+        "swatch": "var(--color-red-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/red/300",
+        "hex": "#FDA29B",
+        "swatch": "var(--color-red-300)"
+      }
+    ]
   }
 ]} />
 
@@ -274,54 +492,180 @@ Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니�
     "figmaName": "status/success-bg",
     "cssName": "--status-success-bg",
     "codeSyntax": "var(--status-success-bg)",
-    "value": "color/green/50 → #ECFDF3"
+    "value": "color/green/50 → #ECFDF3",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/green/50",
+        "hex": "#ECFDF3",
+        "swatch": "var(--color-green-50)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/green/900",
+        "hex": "#054F31",
+        "swatch": "var(--color-green-900)"
+      }
+    ]
   },
   {
     "figmaName": "status/success-text",
     "cssName": "--status-success-text",
     "codeSyntax": "var(--status-success-text)",
-    "value": "color/green/600 → #067647"
+    "value": "color/green/600 → #067647",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/green/600",
+        "hex": "#067647",
+        "swatch": "var(--color-green-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/green/300",
+        "hex": "#6CE9A6",
+        "swatch": "var(--color-green-300)"
+      }
+    ]
   },
   {
     "figmaName": "status/error-bg",
     "cssName": "--status-error-bg",
     "codeSyntax": "var(--status-error-bg)",
-    "value": "color/red/50 → #FEF2F2"
+    "value": "color/red/50 → #FEF2F2",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/red/50",
+        "hex": "#FEF2F2",
+        "swatch": "var(--color-red-50)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/red/900",
+        "hex": "#7A271A",
+        "swatch": "var(--color-red-900)"
+      }
+    ]
   },
   {
     "figmaName": "status/error-text",
     "cssName": "--status-error-text",
     "codeSyntax": "var(--status-error-text)",
-    "value": "color/red/700 → #B42318"
+    "value": "color/red/700 → #B42318",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/red/700",
+        "hex": "#B42318",
+        "swatch": "var(--color-red-700)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/red/300",
+        "hex": "#FDA29B",
+        "swatch": "var(--color-red-300)"
+      }
+    ]
   },
   {
     "figmaName": "status/warning-bg",
     "cssName": "--status-warning-bg",
     "codeSyntax": "var(--status-warning-bg)",
-    "value": "color/orange/50 → #FFFAEB"
+    "value": "color/orange/50 → #FFFAEB",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/orange/50",
+        "hex": "#FFFAEB",
+        "swatch": "var(--color-orange-50)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/orange/900",
+        "hex": "#7A2E0E",
+        "swatch": "var(--color-orange-900)"
+      }
+    ]
   },
   {
     "figmaName": "status/warning-text",
     "cssName": "--status-warning-text",
     "codeSyntax": "var(--status-warning-text)",
-    "value": "color/orange/600 → #B54708"
+    "value": "color/orange/600 → #B54708",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/orange/600",
+        "hex": "#B54708",
+        "swatch": "var(--color-orange-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/orange/300",
+        "hex": "#FEC84B",
+        "swatch": "var(--color-orange-300)"
+      }
+    ]
   },
   {
     "figmaName": "status/info-bg",
     "cssName": "--status-info-bg",
     "codeSyntax": "var(--status-info-bg)",
-    "value": "color/primary/50 → #EEF2FF"
+    "value": "color/primary/50 → #EEF2FF",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/primary/50",
+        "hex": "#EEF2FF",
+        "swatch": "var(--color-primary-50)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/primary/700",
+        "hex": "#3036B0",
+        "swatch": "var(--color-primary-700)"
+      }
+    ]
   },
   {
     "figmaName": "status/info-text",
     "cssName": "--status-info-text",
     "codeSyntax": "var(--status-info-text)",
-    "value": "color/primary/600 → #3E46D6"
+    "value": "color/primary/600 → #3E46D6",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/primary/600",
+        "hex": "#3E46D6",
+        "swatch": "var(--color-primary-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/primary/300",
+        "hex": "#A5B4FC",
+        "swatch": "var(--color-primary-300)"
+      }
+    ]
   },
   {
     "figmaName": "status/error-icon",
     "cssName": "--status-error-icon",
     "codeSyntax": "var(--status-error-icon)",
-    "value": "color/red/600 → #D92D20"
+    "value": "color/red/600 → #D92D20",
+    "modes": [
+      {
+        "name": "light",
+        "ref": "color/red/600",
+        "hex": "#D92D20",
+        "swatch": "var(--color-red-600)"
+      },
+      {
+        "name": "dark",
+        "ref": "color/red/300",
+        "hex": "#FDA29B",
+        "swatch": "var(--color-red-300)"
+      }
+    ]
   }
 ]} />

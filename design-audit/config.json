@@ -22,7 +22,7 @@
     "focus": [":focus-visible", ":focus-within"]
   },
   "hardcode": {
-    "scan": ["src/components", "src/docs/GuideBlocks.tsx", "src/App.tsx", "src/index.css"],
+    "scan": ["src/components", "src/docs/GuideBlocks.tsx", "src/App.tsx", "src/index.css", ".storybook"],
     "extensions": [".css", ".tsx", ".ts"],
     "exceptionMarker": "예외:"
   },
