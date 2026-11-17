@@ -14,6 +14,10 @@
 ## Figma와 코드 이름 일치
 - Figma 컴포넌트의 속성 이름과 값은 코드 props의 이름과 값과 똑같이 쓴다.
   (예: Button의 `variant`, `size`, `state`, `disabled`, `loading`, `label`)
+- Figma 컴포넌트의 기본 variant와 코드 props 기본값은 같아야 한다.
+  (Figma 컴포넌트 세트의 맨 왼쪽 위 variant = 코드 기본값. 컴포넌트를 만들 때마다 둘을 표로 비교해서 확인한다)
+  - Boolean 속성(loading 등)의 기본값도 같게 한다.
+  - 텍스트 속성(label 등)의 Figma 기본 글자는 예시 문구이므로 코드 기본값으로 쓰지 않는다. (코드는 필수 props로 받는다)
 
 ## 비밀 파일
 - `.env` 같은 비밀 파일은 절대 commit하지 않는다. (`.gitignore`에 등록되어 있다)

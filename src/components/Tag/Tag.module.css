@@ -1,0 +1,52 @@
+/*
+ * Tag 스타일 — Figma Tag 컴포넌트와 같은 값
+ * 색은 semantic 토큰(--bg-*, --text-*, --status-*)만, 간격·radius는 dimension 토큰만 사용합니다.
+ * 글자(글꼴·크기·줄 높이·굵기)는 Tag.tsx에서 붙이는 .text-label-sm / .text-label-md 클래스가 담당합니다.
+ * 높이는 따로 정하지 않고 Figma처럼 "글자 줄 높이 + 위아래 padding"으로 정해집니다. (sm 24, md 28)
+ * 직접 적은 값(예외)은 없습니다.
+ */
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-block: var(--spacing-4);
+  border-radius: var(--radius-999);
+  white-space: nowrap;
+}
+
+/* size — Figma: sm 좌우 spacing/8, md 좌우 spacing/12 */
+.tag[data-size='sm'] {
+  padding-inline: var(--spacing-8);
+}
+
+.tag[data-size='md'] {
+  padding-inline: var(--spacing-12);
+}
+
+/* color — Figma: neutral은 bg/subtle + text/default, primary는 bg/primary + text/on-primary, 나머지는 status 변수 */
+.tag[data-color='neutral'] {
+  background: var(--bg-subtle);
+  color: var(--text-default);
+}
+
+.tag[data-color='primary'] {
+  background: var(--bg-primary);
+  color: var(--text-on-primary);
+}
+
+.tag[data-color='success'] {
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+}
+
+.tag[data-color='error'] {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+}
+
+.tag[data-color='warning'] {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+}
