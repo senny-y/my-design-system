@@ -24,6 +24,7 @@
 
   --color-red-50: #FEF2F2;
   --color-red-600: #D92D20;
+  --color-red-700: #B42318;
 
   --color-green-50: #ECFDF3;
   --color-green-600: #067647;
@@ -53,11 +54,12 @@
   --status-success-bg: var(--color-green-50);
   --status-success-text: var(--color-green-600);
   --status-error-bg: var(--color-red-50);
-  --status-error-text: var(--color-red-600);
+  --status-error-text: var(--color-red-700);
   --status-warning-bg: var(--color-orange-50);
   --status-warning-text: var(--color-orange-600);
   --status-info-bg: var(--color-primary-50);
   --status-info-text: var(--color-primary-600);
+  --status-error-icon: var(--color-red-600);
 }
 
 /* dimension · 모드: Mode 1 */

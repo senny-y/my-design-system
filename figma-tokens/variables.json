@@ -26,7 +26,8 @@
       {"name":"color/green/50","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-green-50)"},"values":{"Mode 1":"#ECFDF3"}},
       {"name":"color/green/600","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-green-600)"},"values":{"Mode 1":"#067647"}},
       {"name":"color/orange/50","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-orange-50)"},"values":{"Mode 1":"#FFFAEB"}},
-      {"name":"color/orange/600","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-orange-600)"},"values":{"Mode 1":"#B54708"}}
+      {"name":"color/orange/600","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-orange-600)"},"values":{"Mode 1":"#B54708"}},
+      {"name":"color/red/700","type":"COLOR","scopes":[],"codeSyntax":{"web":"var(--color-red-700)"},"values":{"Mode 1":"#B42318"}}
       ]
     },
     {
@@ -48,11 +49,12 @@
       {"name":"status/success-bg","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-success-bg)"},"values":{"light":{"alias":"color/green/50","resolved":"#ECFDF3"}}},
       {"name":"status/success-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-success-text)"},"values":{"light":{"alias":"color/green/600","resolved":"#067647"}}},
       {"name":"status/error-bg","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-error-bg)"},"values":{"light":{"alias":"color/red/50","resolved":"#FEF2F2"}}},
-      {"name":"status/error-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-error-text)"},"values":{"light":{"alias":"color/red/600","resolved":"#D92D20"}}},
+      {"name":"status/error-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-error-text)"},"values":{"light":{"alias":"color/red/700","resolved":"#B42318"}}},
       {"name":"status/warning-bg","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-warning-bg)"},"values":{"light":{"alias":"color/orange/50","resolved":"#FFFAEB"}}},
       {"name":"status/warning-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-warning-text)"},"values":{"light":{"alias":"color/orange/600","resolved":"#B54708"}}},
       {"name":"status/info-bg","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-info-bg)"},"values":{"light":{"alias":"color/primary/50","resolved":"#EEF2FF"}}},
-      {"name":"status/info-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-info-text)"},"values":{"light":{"alias":"color/primary/600","resolved":"#3E46D6"}}}
+      {"name":"status/info-text","type":"COLOR","scopes":["TEXT_FILL"],"codeSyntax":{"web":"var(--status-info-text)"},"values":{"light":{"alias":"color/primary/600","resolved":"#3E46D6"}}},
+      {"name":"status/error-icon","type":"COLOR","scopes":["FRAME_FILL","SHAPE_FILL"],"codeSyntax":{"web":"var(--status-error-icon)"},"values":{"light":{"alias":"color/red/600","resolved":"#D92D20"}}}
       ]
     },
     {
