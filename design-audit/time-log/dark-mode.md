@@ -53,3 +53,22 @@
 - Button primary의 focus 테두리(border/focus=primary/300)가 배경(bg/primary=primary/300)과 같은 색이라 다크에서 보이지 않음 (Figma 쪽 결정 대기)
 - Input 비활성 도움말(text/disabled on bg/default 2.67:1)은 axe가 지적하지만 비활성 요소 예외로 둔 값 (라이트와 같은 성격)
 - text/placeholder(dark) 2.68:1, border/default(dark) 2.68:1 (3:1 미만) — 선택하신 값
+
+---
+
+# 3차: Button primary focus 테두리 문제 해결 (추천 A안)
+
+- **3차 시작 요청**: 2026-11-17 21:56:04
+- 선택: A안 — 다크의 border/focus를 neutral/0(흰색)으로 (라이트는 그대로)
+
+| 단계 | 시작 | 끝 | 걸린 시간 | 내용 |
+|---|---|---|---|---|
+| 11. 사용자 확인 대기 | 21:45:09 | 21:56:04 | 10분 55초 | 다크 모드 commit·push 후 focus 문제 해결 방향을 정하실 때까지 |
+| 12. focus 문제 해결 (A안) | 21:56:04 | 21:59:25 | 3분 21초 | Figma border/focus dark 값을 neutral/0으로 변경(라이트 그대로), variables.json 내보내기(Figma와 길이·해시 일치), 토큰 CSS 1줄 변경, README 한계 문구 갱신, Figma·Storybook 화면에서 흰색 focus 테두리 확인, Vercel과 같은 명령 빌드·비교 66개 다른 것 0·접근성·테스트 확인 |
+
+## 3차 합계
+
+- 3차 시작 21:56:04 → 끝 21:59:25, **3차 3분 21초** (사용자 확인 대기 제외)
+- 1차(Figma 적용)는 결정 대기 1분 31초를 빼면 2분 41초, 2차는 9분 21초(대기 제외)입니다.
+- 이번에 바꾼 것: Figma border/focus(dark) 1개, variables.json 1줄, 토큰 CSS 1줄, 가이드 문서(자동 생성), README 1줄
+- 아직 commit하지 않음 (사용자 확인 후 commit)

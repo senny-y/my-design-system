@@ -85,7 +85,7 @@
   --text-placeholder: var(--color-neutral-600);
 
   --border-default: var(--color-neutral-600);
-  --border-focus: var(--color-primary-300);
+  --border-focus: var(--color-neutral-0);
   --border-error: var(--color-red-300);
 
   --status-success-bg: var(--color-green-900);
