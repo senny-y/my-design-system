@@ -1,0 +1,77 @@
+/*
+ * Toast 스타일 — Figma Toast 컴포넌트와 같은 값
+ * 색은 semantic 토큰(--bg-*, --text-*, --border-*, --status-*)만, 간격·radius·크기는 dimension 토큰만 사용합니다.
+ * 글자는 Toast.tsx에서 붙이는 .text-label-sm(아이콘 글리프) · .text-label-md(제목) · .text-body-sm(설명) · .text-body-md(닫기) 클래스가 담당합니다.
+ * 너비를 정하는 크기 토큰이 없어서 내용에 맞춰지고(Figma와 같음), 설명은 줄바꿈 없이 한 줄입니다.
+ * 직접 적은 값(예외)은 없습니다.
+ */
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  box-sizing: border-box;
+  width: fit-content;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-12);
+  background: var(--bg-default);
+  /* Figma의 "안쪽 테두리"와 같게: 크기가 변하지 않도록 border 대신 inset 그림자 사용 */
+  box-shadow: inset 0 0 0 var(--spacing-1) var(--border-default);
+}
+
+/* 아이콘: 크기 size/20 원, 색은 type별 status 변수, 글리프는 text/on-primary */
+.icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: var(--size-20);
+  height: var(--size-20);
+  border-radius: var(--radius-999);
+  color: var(--text-on-primary);
+}
+
+.toast[data-type='success'] .icon {
+  background: var(--status-success-text);
+}
+
+.toast[data-type='error'] .icon {
+  background: var(--status-error-text);
+}
+
+.toast[data-type='info'] .icon {
+  background: var(--status-info-text);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.title {
+  margin: 0;
+  color: var(--text-default);
+}
+
+.description {
+  margin: 0;
+  color: var(--text-subtle);
+}
+
+/* 닫기 버튼: Figma의 ✕ 글자와 같은 크기로, 키보드 포커스일 때만 테두리 */
+.close {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-4);
+  background: none;
+  color: var(--text-subtle);
+  cursor: pointer;
+}
+
+.close:focus-visible {
+  outline: var(--spacing-2) solid var(--border-focus);
+  outline-offset: var(--spacing-2);
+}
