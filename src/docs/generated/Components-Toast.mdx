@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Controls } from '@storybook/addon-docs/blocks'
 import * as Stories from '../../components/Toast/Toast.stories'
-import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+import { Lead, ThemePreview, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 {/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
 
@@ -10,9 +10,13 @@ import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 <Lead text={"type(success·error·info) variant. 아이콘 색은 status 변수(success는 status/success-text, error는 status/error-icon, info는 status/info-text). title·description 텍스트 속성, closable(Boolean)은 닫기 버튼 표시/숨김. 닫기 버튼의 누르는 영역은 size/24 × size/24이고 ✕ 아이콘 크기는 그대로. 너비를 정하는 size 변수가 없어 내용에 맞춰짐. 아이콘 글리프(✓ ✕ i)는 글자로 표현."} figmaNodeId={"17:111"} />
 
-## 미리보기
+## 미리보기 (라이트 / 다크)
 
-<Canvas of={Stories.Compare} />
+위쪽 도구 막대의 모드와 상관없이 라이트와 다크를 항상 같이 보여줍니다.
+
+<ThemePreview>
+  <Story of={Stories.Compare} />
+</ThemePreview>
 
 ## Figma 속성 ↔ 코드 props
 

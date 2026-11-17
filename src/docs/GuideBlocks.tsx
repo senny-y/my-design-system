@@ -161,6 +161,34 @@ export function TextStyleTable({ rows }: { rows: TextStyleRow[] }) {
 }
 
 // ---------- 컴포넌트 문서 ----------
+// 같은 미리보기를 라이트·다크 두 줄로. 각 줄에 data-theme을 지정해서, 위쪽 도구 막대의 모드와 상관없이 항상 둘 다 보임
+// (토큰 CSS가 [data-theme="light"] / [data-theme="dark"] 안쪽의 semantic 색을 각각 바꿔 줌)
+export function ThemePreview({ children }: { children: ReactNode }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-16)', marginBottom: 'var(--spacing-16)' }}>
+      {(['light', 'dark'] as const).map((mode) => (
+        <section
+          key={mode}
+          data-theme={mode}
+          aria-label={`${mode} 미리보기`}
+          style={{
+            padding: 'var(--spacing-24)',
+            border: 'var(--spacing-1) solid var(--border-default)',
+            borderRadius: 'var(--radius-12)',
+            background: 'var(--bg-default)',
+            color: 'var(--text-default)',
+          }}
+        >
+          <div className="text-label-md" style={{ marginBottom: 'var(--spacing-12)', color: 'var(--text-subtle)' }}>
+            {mode}
+          </div>
+          {children}
+        </section>
+      ))}
+    </div>
+  )
+}
+
 export function Lead({ text, figmaNodeId }: { text: string; figmaNodeId: string | null }) {
   return (
     <div style={{ marginBottom: 'var(--spacing-16)' }}>

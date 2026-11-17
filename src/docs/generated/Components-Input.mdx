@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Controls } from '@storybook/addon-docs/blocks'
 import * as Stories from '../../components/Input/Input.stories'
-import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+import { Lead, ThemePreview, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 {/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
 
@@ -10,9 +10,13 @@ import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 <Lead text={"size(md) · state(default·focus) · error(false·true) · disabled(false·true)는 variant 속성. disabled=true는 state=default만 있으며 error 값과 관계없이 같은 모양(disabled 우선). error=true는 border/error와 status/error-text. label·helperText는 텍스트 속성. 너비를 정하는 size 변수가 없어 내용에 맞춰지며, 레이아웃 안에서는 가로 채우기로 늘어남."} figmaNodeId={"17:89"} />
 
-## 미리보기
+## 미리보기 (라이트 / 다크)
 
-<Canvas of={Stories.Compare} />
+위쪽 도구 막대의 모드와 상관없이 라이트와 다크를 항상 같이 보여줍니다.
+
+<ThemePreview>
+  <Story of={Stories.Compare} />
+</ThemePreview>
 
 ## Figma 속성 ↔ 코드 props
 

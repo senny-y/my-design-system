@@ -1,6 +1,6 @@
-import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import { Meta, Story, Controls } from '@storybook/addon-docs/blocks'
 import * as Stories from '../../components/Button/Button.stories'
-import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+import { Lead, ThemePreview, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 {/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
 
@@ -10,9 +10,13 @@ import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
 
 <Lead text={"variant · size · state · disabled(true/false)는 variant 속성. state는 디자인 확인용이며 disabled=true는 state=default만 있음. loading(Boolean)은 스피너 표시/숨김, label은 텍스트 속성. 스피너 색은 버튼 글자색 변수를 따름(disabled=true면 text/disabled). 예외: 스피너 두께는 Figma에서 변수 연결이 안 되어 고리 안쪽 비율 0.75(size/16 기준 약 2px)로 고정."} figmaNodeId={"13:92"} />
 
-## 미리보기
+## 미리보기 (라이트 / 다크)
 
-<Canvas of={Stories.Compare} />
+위쪽 도구 막대의 모드와 상관없이 라이트와 다크를 항상 같이 보여줍니다.
+
+<ThemePreview>
+  <Story of={Stories.Compare} />
+</ThemePreview>
 
 ## Figma 속성 ↔ 코드 props
 

@@ -7,7 +7,11 @@ html .sbdocs-wrapper {
   color: var(--text-default);
 }
 
-/* 다크일 때 브라우저 기본 부품(스크롤바, 입력 커서 등)도 어둡게 */
+/* 다크일 때 브라우저 기본 부품(스크롤바, 입력 커서 등)도 어둡게. 다크 화면 안의 라이트 미리보기는 다시 밝게 */
 [data-theme='dark'] {
   color-scheme: dark;
+}
+
+[data-theme='light'] {
+  color-scheme: light;
 }

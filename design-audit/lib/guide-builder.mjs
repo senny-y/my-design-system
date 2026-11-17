@@ -132,9 +132,13 @@ function componentPages(root, cfg, comps) {
 
 <Lead text={${js(c.description)}} figmaNodeId={${js(c.figmaNodeId)}} />
 
-## 미리보기
+## 미리보기 (라이트 / 다크)
 
-<Canvas of={Stories.${cfg.guide.previewStory}} />
+위쪽 도구 막대의 모드와 상관없이 라이트와 다크를 항상 같이 보여줍니다.
+
+<ThemePreview>
+  <Story of={Stories.${cfg.guide.previewStory}} />
+</ThemePreview>
 
 ## Figma 속성 ↔ 코드 props
 
@@ -155,7 +159,7 @@ Figma 속성 이름·값·기본값이 코드 props와 같은지 \`npm run audit
 <Controls of={Stories.Playground} />`
     pages.push({
       file: `Components-${c.name}.mdx`,
-      content: `import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'\nimport * as Stories from '${storiesImport}'\nimport { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'\n\n{/* ${HEADER} */}\n\n<Meta of={Stories} name="Docs" />\n\n${body}\n`,
+      content: `import { Meta, Story, Controls } from '@storybook/addon-docs/blocks'\nimport * as Stories from '${storiesImport}'\nimport { Lead, ThemePreview, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'\n\n{/* ${HEADER} */}\n\n<Meta of={Stories} name="Docs" />\n\n${body}\n`,
     })
   }
   return { pages, rules }
