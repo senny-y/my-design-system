@@ -1,0 +1,35 @@
+{
+  "tokens": {
+    "variables": "figma-tokens/variables.json",
+    "textStyles": "figma-tokens/text-styles.json",
+    "css": "src/tokens/tokens.css"
+  },
+  "componentsSource": "figma-tokens/components.json",
+  "components": [
+    { "name": "Button", "dir": "src/components/Button", "propsInterface": "ButtonProps", "cssStateProps": ["state"], "codeOnlyProps": {} },
+    { "name": "Tag", "dir": "src/components/Tag", "propsInterface": "TagProps", "cssStateProps": [], "codeOnlyProps": {} },
+    { "name": "Input", "dir": "src/components/Input", "propsInterface": "InputProps", "cssStateProps": ["state"], "codeOnlyProps": {} },
+    {
+      "name": "Toast",
+      "dir": "src/components/Toast",
+      "propsInterface": "ToastProps",
+      "cssStateProps": [],
+      "codeOnlyProps": { "onClose": "닫기 버튼을 눌렀을 때 실행할 동작 연결용 (Figma에는 없는 동작)" }
+    }
+  ],
+  "stateSelectors": {
+    "hover": [":hover"],
+    "focus": [":focus-visible", ":focus-within"]
+  },
+  "hardcode": {
+    "scan": ["src/components", "src/docs/GuideBlocks.tsx", "src/App.tsx", "src/index.css"],
+    "extensions": [".css", ".tsx", ".ts"],
+    "exceptionMarker": "예외:"
+  },
+  "guide": {
+    "outputDir": "src/docs/generated",
+    "rulesDir": "design-guide/rules",
+    "previewStory": "Compare"
+  },
+  "reportsDir": "design-audit/reports"
+}

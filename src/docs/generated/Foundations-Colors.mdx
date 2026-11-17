@@ -1,0 +1,315 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { TokenTable, TextStyleTable } from '../GuideBlocks'
+
+{/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
+
+<Meta title="Foundations/Colors" />
+
+# Colors
+
+Figma 이름, 코드 이름(CSS 변수), Code syntax를 한 줄에 보여줍니다. 견본의 색은 실제 토큰 CSS에서 가져옵니다.
+
+## primitive
+
+원본 색상 값입니다. 컴포넌트에서는 직접 쓰지 않고 semantic을 통해서만 씁니다.
+
+### primary
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "color/primary/50",
+    "cssName": "--color-primary-50",
+    "codeSyntax": "var(--color-primary-50)",
+    "value": "#EEF2FF"
+  },
+  {
+    "figmaName": "color/primary/100",
+    "cssName": "--color-primary-100",
+    "codeSyntax": "var(--color-primary-100)",
+    "value": "#E0E7FF"
+  },
+  {
+    "figmaName": "color/primary/300",
+    "cssName": "--color-primary-300",
+    "codeSyntax": "var(--color-primary-300)",
+    "value": "#A5B4FC"
+  },
+  {
+    "figmaName": "color/primary/500",
+    "cssName": "--color-primary-500",
+    "codeSyntax": "var(--color-primary-500)",
+    "value": "#5B67F1"
+  },
+  {
+    "figmaName": "color/primary/600",
+    "cssName": "--color-primary-600",
+    "codeSyntax": "var(--color-primary-600)",
+    "value": "#3E46D6"
+  },
+  {
+    "figmaName": "color/primary/700",
+    "cssName": "--color-primary-700",
+    "codeSyntax": "var(--color-primary-700)",
+    "value": "#3036B0"
+  }
+]} />
+
+### neutral
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "color/neutral/0",
+    "cssName": "--color-neutral-0",
+    "codeSyntax": "var(--color-neutral-0)",
+    "value": "#FFFFFF"
+  },
+  {
+    "figmaName": "color/neutral/50",
+    "cssName": "--color-neutral-50",
+    "codeSyntax": "var(--color-neutral-50)",
+    "value": "#F7F7F8"
+  },
+  {
+    "figmaName": "color/neutral/100",
+    "cssName": "--color-neutral-100",
+    "codeSyntax": "var(--color-neutral-100)",
+    "value": "#EEEEF0"
+  },
+  {
+    "figmaName": "color/neutral/200",
+    "cssName": "--color-neutral-200",
+    "codeSyntax": "var(--color-neutral-200)",
+    "value": "#DEDEE2"
+  },
+  {
+    "figmaName": "color/neutral/400",
+    "cssName": "--color-neutral-400",
+    "codeSyntax": "var(--color-neutral-400)",
+    "value": "#9A9AA3"
+  },
+  {
+    "figmaName": "color/neutral/600",
+    "cssName": "--color-neutral-600",
+    "codeSyntax": "var(--color-neutral-600)",
+    "value": "#5C5C66"
+  },
+  {
+    "figmaName": "color/neutral/800",
+    "cssName": "--color-neutral-800",
+    "codeSyntax": "var(--color-neutral-800)",
+    "value": "#2E2E35"
+  },
+  {
+    "figmaName": "color/neutral/900",
+    "cssName": "--color-neutral-900",
+    "codeSyntax": "var(--color-neutral-900)",
+    "value": "#18181C"
+  }
+]} />
+
+### red
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "color/red/50",
+    "cssName": "--color-red-50",
+    "codeSyntax": "var(--color-red-50)",
+    "value": "#FEF2F2"
+  },
+  {
+    "figmaName": "color/red/600",
+    "cssName": "--color-red-600",
+    "codeSyntax": "var(--color-red-600)",
+    "value": "#D92D20"
+  },
+  {
+    "figmaName": "color/red/700",
+    "cssName": "--color-red-700",
+    "codeSyntax": "var(--color-red-700)",
+    "value": "#B42318"
+  }
+]} />
+
+### green
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "color/green/50",
+    "cssName": "--color-green-50",
+    "codeSyntax": "var(--color-green-50)",
+    "value": "#ECFDF3"
+  },
+  {
+    "figmaName": "color/green/600",
+    "cssName": "--color-green-600",
+    "codeSyntax": "var(--color-green-600)",
+    "value": "#067647"
+  }
+]} />
+
+### orange
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "color/orange/50",
+    "cssName": "--color-orange-50",
+    "codeSyntax": "var(--color-orange-50)",
+    "value": "#FFFAEB"
+  },
+  {
+    "figmaName": "color/orange/600",
+    "cssName": "--color-orange-600",
+    "codeSyntax": "var(--color-orange-600)",
+    "value": "#B54708"
+  }
+]} />
+
+## semantic
+
+용도별 이름입니다. 값은 primitive를 참조합니다. (모드: light)
+
+### bg
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "bg/default",
+    "cssName": "--bg-default",
+    "codeSyntax": "var(--bg-default)",
+    "value": "color/neutral/0 → #FFFFFF"
+  },
+  {
+    "figmaName": "bg/subtle",
+    "cssName": "--bg-subtle",
+    "codeSyntax": "var(--bg-subtle)",
+    "value": "color/neutral/50 → #F7F7F8"
+  },
+  {
+    "figmaName": "bg/primary",
+    "cssName": "--bg-primary",
+    "codeSyntax": "var(--bg-primary)",
+    "value": "color/primary/600 → #3E46D6"
+  },
+  {
+    "figmaName": "bg/primary-hover",
+    "cssName": "--bg-primary-hover",
+    "codeSyntax": "var(--bg-primary-hover)",
+    "value": "color/primary/700 → #3036B0"
+  },
+  {
+    "figmaName": "bg/disabled",
+    "cssName": "--bg-disabled",
+    "codeSyntax": "var(--bg-disabled)",
+    "value": "color/neutral/100 → #EEEEF0"
+  }
+]} />
+
+### text
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "text/default",
+    "cssName": "--text-default",
+    "codeSyntax": "var(--text-default)",
+    "value": "color/neutral/900 → #18181C"
+  },
+  {
+    "figmaName": "text/subtle",
+    "cssName": "--text-subtle",
+    "codeSyntax": "var(--text-subtle)",
+    "value": "color/neutral/600 → #5C5C66"
+  },
+  {
+    "figmaName": "text/on-primary",
+    "cssName": "--text-on-primary",
+    "codeSyntax": "var(--text-on-primary)",
+    "value": "color/neutral/0 → #FFFFFF"
+  },
+  {
+    "figmaName": "text/disabled",
+    "cssName": "--text-disabled",
+    "codeSyntax": "var(--text-disabled)",
+    "value": "color/neutral/400 → #9A9AA3"
+  }
+]} />
+
+### border
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "border/default",
+    "cssName": "--border-default",
+    "codeSyntax": "var(--border-default)",
+    "value": "color/neutral/200 → #DEDEE2"
+  },
+  {
+    "figmaName": "border/focus",
+    "cssName": "--border-focus",
+    "codeSyntax": "var(--border-focus)",
+    "value": "color/primary/500 → #5B67F1"
+  },
+  {
+    "figmaName": "border/error",
+    "cssName": "--border-error",
+    "codeSyntax": "var(--border-error)",
+    "value": "color/red/600 → #D92D20"
+  }
+]} />
+
+### status
+
+<TokenTable kind="color" rows={[
+  {
+    "figmaName": "status/success-bg",
+    "cssName": "--status-success-bg",
+    "codeSyntax": "var(--status-success-bg)",
+    "value": "color/green/50 → #ECFDF3"
+  },
+  {
+    "figmaName": "status/success-text",
+    "cssName": "--status-success-text",
+    "codeSyntax": "var(--status-success-text)",
+    "value": "color/green/600 → #067647"
+  },
+  {
+    "figmaName": "status/error-bg",
+    "cssName": "--status-error-bg",
+    "codeSyntax": "var(--status-error-bg)",
+    "value": "color/red/50 → #FEF2F2"
+  },
+  {
+    "figmaName": "status/error-text",
+    "cssName": "--status-error-text",
+    "codeSyntax": "var(--status-error-text)",
+    "value": "color/red/700 → #B42318"
+  },
+  {
+    "figmaName": "status/warning-bg",
+    "cssName": "--status-warning-bg",
+    "codeSyntax": "var(--status-warning-bg)",
+    "value": "color/orange/50 → #FFFAEB"
+  },
+  {
+    "figmaName": "status/warning-text",
+    "cssName": "--status-warning-text",
+    "codeSyntax": "var(--status-warning-text)",
+    "value": "color/orange/600 → #B54708"
+  },
+  {
+    "figmaName": "status/info-bg",
+    "cssName": "--status-info-bg",
+    "codeSyntax": "var(--status-info-bg)",
+    "value": "color/primary/50 → #EEF2FF"
+  },
+  {
+    "figmaName": "status/info-text",
+    "cssName": "--status-info-text",
+    "codeSyntax": "var(--status-info-text)",
+    "value": "color/primary/600 → #3E46D6"
+  },
+  {
+    "figmaName": "status/error-icon",
+    "cssName": "--status-error-icon",
+    "codeSyntax": "var(--status-error-icon)",
+    "value": "color/red/600 → #D92D20"
+  }
+]} />

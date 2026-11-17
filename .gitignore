@@ -31,3 +31,7 @@ dist-ssr
 # Storybook
 storybook-static
 *storybook.log
+
+# 검사 리포트는 실행할 때마다 새로 만들어지므로 commit하지 않음
+design-audit/reports/*
+!design-audit/reports/.gitkeep

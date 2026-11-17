@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from '../../components/Tag/Tag.stories'
+import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+
+{/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
+
+<Meta of={Stories} name="Docs" />
+
+# Tag
+
+<Lead text={"color(neutral·primary·success·error·warning) · size(sm·md) variant, label 텍스트 속성. 모서리는 radius/999(완전한 둥근 모서리)."} figmaNodeId={"17:58"} />
+
+## 미리보기
+
+<Canvas of={Stories.Compare} />
+
+## Figma 속성 ↔ 코드 props
+
+Figma 속성 이름·값·기본값이 코드 props와 같은지 `npm run audit`이 확인한 결과입니다.
+
+<PropsTable rows={[
+  {
+    "figmaProp": "label",
+    "figmaKind": "텍스트 속성",
+    "figmaValues": "글자",
+    "figmaDefault": "Tag",
+    "codeProp": "label",
+    "codeType": "string",
+    "codeDefault": "없음",
+    "status": "일치",
+    "note": "글자 기본값은 예시 문구 — 코드는 기본값 없음"
+  },
+  {
+    "figmaProp": "color",
+    "figmaKind": "variant",
+    "figmaValues": "neutral | primary | success | error | warning",
+    "figmaDefault": "neutral",
+    "codeProp": "color?",
+    "codeType": "neutral | primary | success | error | warning",
+    "codeDefault": "neutral",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "size",
+    "figmaKind": "variant",
+    "figmaValues": "sm | md",
+    "figmaDefault": "md",
+    "codeProp": "size?",
+    "codeType": "sm | md",
+    "codeDefault": "md",
+    "status": "일치",
+    "note": ""
+  }
+]} />
+
+## 접근성
+
+<A11yNotes items={[]} />
+
+## 사용 규칙 (Do / Don't)
+
+<DoDont dos={[]} donts={[]} source={"design-guide/rules/Tag.md"} />
+
+## 직접 바꿔보기
+
+<Controls of={Stories.Playground} />

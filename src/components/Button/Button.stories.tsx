@@ -8,7 +8,6 @@ import type { ButtonVariant } from './Button'
 const meta = {
   title: 'Components/Button',
   component: Button,
-  tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
     variant: 'primary',

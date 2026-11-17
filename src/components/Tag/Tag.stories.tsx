@@ -9,7 +9,6 @@ const sizes: TagSize[] = ['sm', 'md']
 const meta = {
   title: 'Components/Tag',
   component: Tag,
-  tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
     color: 'neutral',

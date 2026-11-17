@@ -1,0 +1,102 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from '../../components/Button/Button.stories'
+import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+
+{/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
+
+<Meta of={Stories} name="Docs" />
+
+# Button
+
+<Lead text={"variant · size · state · disabled(true/false)는 variant 속성. state는 디자인 확인용이며 disabled=true는 state=default만 있음. loading(Boolean)은 스피너 표시/숨김, label은 텍스트 속성. 스피너 색은 버튼 글자색 변수를 따름(disabled=true면 text/disabled). 예외: 스피너 두께는 Figma에서 변수 연결이 안 되어 고리 안쪽 비율 0.75(size/16 기준 약 2px)로 고정."} figmaNodeId={"13:92"} />
+
+## 미리보기
+
+<Canvas of={Stories.Compare} />
+
+## Figma 속성 ↔ 코드 props
+
+Figma 속성 이름·값·기본값이 코드 props와 같은지 `npm run audit`이 확인한 결과입니다.
+
+<PropsTable rows={[
+  {
+    "figmaProp": "label",
+    "figmaKind": "텍스트 속성",
+    "figmaValues": "글자",
+    "figmaDefault": "Button",
+    "codeProp": "label",
+    "codeType": "string",
+    "codeDefault": "없음",
+    "status": "일치",
+    "note": "글자 기본값은 예시 문구 — 코드는 기본값 없음"
+  },
+  {
+    "figmaProp": "loading",
+    "figmaKind": "Boolean 속성",
+    "figmaValues": "true | false",
+    "figmaDefault": "false",
+    "codeProp": "loading?",
+    "codeType": "boolean",
+    "codeDefault": "false",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "variant",
+    "figmaKind": "variant",
+    "figmaValues": "primary | secondary | ghost",
+    "figmaDefault": "primary",
+    "codeProp": "variant?",
+    "codeType": "primary | secondary | ghost",
+    "codeDefault": "primary",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "size",
+    "figmaKind": "variant",
+    "figmaValues": "sm | md",
+    "figmaDefault": "md",
+    "codeProp": "size?",
+    "codeType": "sm | md",
+    "codeDefault": "md",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "state",
+    "figmaKind": "variant",
+    "figmaValues": "default | hover | focus",
+    "figmaDefault": "default",
+    "codeProp": "— (CSS 상태)",
+    "codeType": "CSS 상태",
+    "codeDefault": "default",
+    "status": "일치",
+    "note": "hover → :hover, focus → :focus-visible"
+  },
+  {
+    "figmaProp": "disabled",
+    "figmaKind": "variant (true/false)",
+    "figmaValues": "false | true",
+    "figmaDefault": "false",
+    "codeProp": "disabled?",
+    "codeType": "boolean",
+    "codeDefault": "false",
+    "status": "일치",
+    "note": ""
+  }
+]} />
+
+## 접근성
+
+<A11yNotes items={[
+  "disabled 상태의 글자(text/disabled)는 배경(bg/disabled) 위 명도 대비가 4.5:1보다 낮지만, 비활성 요소는 WCAG 대비 기준의 예외라서 의도된 값임."
+]} />
+
+## 사용 규칙 (Do / Don't)
+
+<DoDont dos={[]} donts={[]} source={"design-guide/rules/Button.md"} />
+
+## 직접 바꿔보기
+
+<Controls of={Stories.Playground} />

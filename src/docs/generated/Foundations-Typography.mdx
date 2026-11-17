@@ -1,0 +1,181 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { TokenTable, TextStyleTable } from '../GuideBlocks'
+
+{/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
+
+<Meta title="Foundations/Typography" />
+
+# Typography
+
+## 텍스트 스타일
+
+Figma 텍스트 스타일은 CSS 클래스로 만들어집니다. 글자에는 이 클래스를 씁니다.
+
+<TextStyleTable rows={[
+  {
+    "figmaName": "heading/lg",
+    "className": ".text-heading-lg",
+    "font": "Semi Bold",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-24)",
+      "var(--line-height-32)",
+      "var(--font-weight-600)"
+    ]
+  },
+  {
+    "figmaName": "heading/md",
+    "className": ".text-heading-md",
+    "font": "Semi Bold",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-20)",
+      "var(--line-height-28)",
+      "var(--font-weight-600)"
+    ]
+  },
+  {
+    "figmaName": "body/md",
+    "className": ".text-body-md",
+    "font": "Regular",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-16)",
+      "var(--line-height-24)",
+      "var(--font-weight-400)"
+    ]
+  },
+  {
+    "figmaName": "body/sm",
+    "className": ".text-body-sm",
+    "font": "Regular",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-14)",
+      "var(--line-height-20)",
+      "var(--font-weight-400)"
+    ]
+  },
+  {
+    "figmaName": "label/md",
+    "className": ".text-label-md",
+    "font": "Semi Bold",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-14)",
+      "var(--line-height-20)",
+      "var(--font-weight-600)"
+    ]
+  },
+  {
+    "figmaName": "label/sm",
+    "className": ".text-label-sm",
+    "font": "Semi Bold",
+    "variables": [
+      "var(--font-family-base)",
+      "var(--font-size-12)",
+      "var(--line-height-16)",
+      "var(--font-weight-600)"
+    ]
+  }
+]} />
+
+## 글자 변수
+
+### font-family
+
+<TokenTable kind="fontFamily" rows={[
+  {
+    "figmaName": "font-family/base",
+    "cssName": "--font-family-base",
+    "codeSyntax": "var(--font-family-base)",
+    "value": "Inter"
+  }
+]} />
+
+### font-size
+
+<TokenTable kind="fontSize" rows={[
+  {
+    "figmaName": "font-size/12",
+    "cssName": "--font-size-12",
+    "codeSyntax": "var(--font-size-12)",
+    "value": "12px"
+  },
+  {
+    "figmaName": "font-size/14",
+    "cssName": "--font-size-14",
+    "codeSyntax": "var(--font-size-14)",
+    "value": "14px"
+  },
+  {
+    "figmaName": "font-size/16",
+    "cssName": "--font-size-16",
+    "codeSyntax": "var(--font-size-16)",
+    "value": "16px"
+  },
+  {
+    "figmaName": "font-size/20",
+    "cssName": "--font-size-20",
+    "codeSyntax": "var(--font-size-20)",
+    "value": "20px"
+  },
+  {
+    "figmaName": "font-size/24",
+    "cssName": "--font-size-24",
+    "codeSyntax": "var(--font-size-24)",
+    "value": "24px"
+  }
+]} />
+
+### line-height
+
+<TokenTable kind="none" rows={[
+  {
+    "figmaName": "line-height/16",
+    "cssName": "--line-height-16",
+    "codeSyntax": "var(--line-height-16)",
+    "value": "16px"
+  },
+  {
+    "figmaName": "line-height/20",
+    "cssName": "--line-height-20",
+    "codeSyntax": "var(--line-height-20)",
+    "value": "20px"
+  },
+  {
+    "figmaName": "line-height/24",
+    "cssName": "--line-height-24",
+    "codeSyntax": "var(--line-height-24)",
+    "value": "24px"
+  },
+  {
+    "figmaName": "line-height/28",
+    "cssName": "--line-height-28",
+    "codeSyntax": "var(--line-height-28)",
+    "value": "28px"
+  },
+  {
+    "figmaName": "line-height/32",
+    "cssName": "--line-height-32",
+    "codeSyntax": "var(--line-height-32)",
+    "value": "32px"
+  }
+]} />
+
+### font-weight
+
+<TokenTable kind="fontWeight" rows={[
+  {
+    "figmaName": "font-weight/400",
+    "cssName": "--font-weight-400",
+    "codeSyntax": "var(--font-weight-400)",
+    "value": "400"
+  },
+  {
+    "figmaName": "font-weight/600",
+    "cssName": "--font-weight-600",
+    "codeSyntax": "var(--font-weight-600)",
+    "value": "600"
+  }
+]} />

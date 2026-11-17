@@ -1,0 +1,102 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import * as Stories from '../../components/Input/Input.stories'
+import { Lead, PropsTable, A11yNotes, DoDont } from '../GuideBlocks'
+
+{/* 자동 생성 · 직접 수정 금지 · 원본 파일: figma-tokens/*.json, design-guide/rules/*.md · 다시 만들기: npm run guide */}
+
+<Meta of={Stories} name="Docs" />
+
+# Input
+
+<Lead text={"size(md) · state(default·focus) · error(false·true) · disabled(false·true)는 variant 속성. disabled=true는 state=default만 있으며 error 값과 관계없이 같은 모양(disabled 우선). error=true는 border/error와 status/error-text. label·helperText는 텍스트 속성. 너비를 정하는 size 변수가 없어 내용에 맞춰지며, 레이아웃 안에서는 가로 채우기로 늘어남."} figmaNodeId={"17:89"} />
+
+## 미리보기
+
+<Canvas of={Stories.Compare} />
+
+## Figma 속성 ↔ 코드 props
+
+Figma 속성 이름·값·기본값이 코드 props와 같은지 `npm run audit`이 확인한 결과입니다.
+
+<PropsTable rows={[
+  {
+    "figmaProp": "label",
+    "figmaKind": "텍스트 속성",
+    "figmaValues": "글자",
+    "figmaDefault": "Label",
+    "codeProp": "label",
+    "codeType": "string",
+    "codeDefault": "없음",
+    "status": "일치",
+    "note": "글자 기본값은 예시 문구 — 코드는 기본값 없음"
+  },
+  {
+    "figmaProp": "helperText",
+    "figmaKind": "텍스트 속성",
+    "figmaValues": "글자",
+    "figmaDefault": "Helper text",
+    "codeProp": "helperText?",
+    "codeType": "string",
+    "codeDefault": "없음",
+    "status": "일치",
+    "note": "글자 기본값은 예시 문구 — 코드는 기본값 없음"
+  },
+  {
+    "figmaProp": "size",
+    "figmaKind": "variant",
+    "figmaValues": "md",
+    "figmaDefault": "md",
+    "codeProp": "size?",
+    "codeType": "md",
+    "codeDefault": "md",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "state",
+    "figmaKind": "variant",
+    "figmaValues": "default | focus",
+    "figmaDefault": "default",
+    "codeProp": "— (CSS 상태)",
+    "codeType": "CSS 상태",
+    "codeDefault": "default",
+    "status": "일치",
+    "note": "focus → :focus-within"
+  },
+  {
+    "figmaProp": "error",
+    "figmaKind": "variant (true/false)",
+    "figmaValues": "false | true",
+    "figmaDefault": "false",
+    "codeProp": "error?",
+    "codeType": "boolean",
+    "codeDefault": "false",
+    "status": "일치",
+    "note": ""
+  },
+  {
+    "figmaProp": "disabled",
+    "figmaKind": "variant (true/false)",
+    "figmaValues": "false | true",
+    "figmaDefault": "false",
+    "codeProp": "disabled?",
+    "codeType": "boolean",
+    "codeDefault": "false",
+    "status": "일치",
+    "note": ""
+  }
+]} />
+
+## 접근성
+
+<A11yNotes items={[
+  "disabled 상태의 글자(label·helperText·placeholder)는 text/disabled 색이라 명도 대비가 4.5:1보다 낮지만, 비활성 요소는 WCAG 대비 기준의 예외라서 의도된 값임."
+]} />
+
+## 사용 규칙 (Do / Don't)
+
+<DoDont dos={[]} donts={[]} source={"design-guide/rules/Input.md"} />
+
+## 직접 바꿔보기
+
+<Controls of={Stories.Playground} />

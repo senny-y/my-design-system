@@ -5,15 +5,18 @@
   "type": "module",
   "scripts": {
     "tokens": "node scripts/generate-tokens.mjs",
+    "guide": "node design-audit/generate-guide.mjs",
+    "audit": "node design-audit/audit.mjs",
+    "sync": "npm run tokens && npm run guide && npm run audit",
     "predev": "npm run tokens",
     "dev": "vite",
     "prebuild": "npm run tokens",
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "prestorybook": "npm run tokens",
+    "prestorybook": "npm run tokens && npm run guide",
     "storybook": "storybook dev -p 6006",
-    "prebuild-storybook": "npm run tokens",
+    "prebuild-storybook": "npm run tokens && npm run guide",
     "build-storybook": "storybook build"
   },
   "dependencies": {

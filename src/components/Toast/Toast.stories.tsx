@@ -9,7 +9,6 @@ const types: ToastType[] = ['success', 'error', 'info']
 const meta = {
   title: 'Components/Toast',
   component: Toast,
-  tags: ['autodocs'],
   parameters: { layout: 'centered' },
   args: {
     type: 'success',

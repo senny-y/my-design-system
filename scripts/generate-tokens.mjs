@@ -131,6 +131,28 @@ const outPath = resolve(ROOT, OUTPUT)
 mkdirSync(dirname(outPath), { recursive: true })
 writeFileSync(outPath, css)
 
+// ---------- 파비콘(public/favicon.svg): 색·모서리·글자 크기를 토큰 값에서 가져옴 ----------
+// 파비콘은 브라우저 탭에서 따로 그려져서 페이지의 CSS 변수(var(--…))를 쓸 수 없으므로, 토큰의 "값"을 SVG에 넣습니다.
+const tokenValue = (name) => {
+  const variable = byName.get(name)
+  if (!variable) fail(`파비콘에 쓸 토큰이 없어요: ${name}`)
+  const raw = Object.values(variable.values)[0]
+  if (typeof raw === 'object') fail(`파비콘에는 다른 변수를 참조하는 토큰을 쓸 수 없어요: ${name}`)
+  return raw
+}
+const faviconSvg = `<!--
+  자동 생성 · 직접 수정 금지
+  원본 파일: ${SOURCE} (color/primary/600, color/neutral/0, radius/8, font-size/16)
+  다시 만들기: npm run tokens
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="${tokenValue('radius/8')}" fill="${tokenValue('color/primary/600')}"/>
+  <text x="16" y="17" fill="${tokenValue('color/neutral/0')}" font-size="${tokenValue('font-size/16')}" font-weight="700" font-family="Inter, system-ui, -apple-system, 'Segoe UI', Arial, sans-serif" text-anchor="middle" dominant-baseline="central">DS</text>
+</svg>
+`
+mkdirSync(resolve(ROOT, 'public'), { recursive: true })
+writeFileSync(resolve(ROOT, 'public/favicon.svg'), faviconSvg)
+
 // ---------- 검증: Figma 변수 개수 = 생성된 CSS 변수 개수 ----------
 const declared = new Set([...css.matchAll(/^\s+(--[a-z0-9-]+):/gm)].map((m) => m[1]))
 const figmaCount = byName.size
@@ -142,4 +164,4 @@ console.log(`생성된 CSS 변수 ${declared.size}개 · 텍스트 스타일 클
 if (missing.length || extra.length || declared.size !== figmaCount) {
   fail(`개수가 달라요. 빠짐: ${missing.join(', ') || '없음'} / 더 생김: ${extra.join(', ') || '없음'}`)
 }
-console.log(`✓ 개수 일치 → ${OUTPUT}`)
+console.log(`✓ 개수 일치 → ${OUTPUT} · 파비콘 → public/favicon.svg`)

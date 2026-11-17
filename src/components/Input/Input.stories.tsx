@@ -7,17 +7,8 @@ import { Input } from './Input'
 const meta = {
   title: 'Components/Input',
   component: Input,
-  tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-    docs: {
-      description: {
-        component:
-          '접근성 참고: disabled 상태의 글자(label · helperText · placeholder)는 `text/disabled` 색이라 명도 대비가 4.5:1보다 낮습니다. ' +
-          '비활성 요소는 WCAG 대비 기준의 예외라서 의도된 값입니다. (Figma Input 컴포넌트 설명에도 같은 내용이 있습니다)',
-      },
-    },
-  },
+  // 접근성 예외(disabled 대비 등)는 Figma 컴포넌트 설명에 적고, 문서 페이지에는 npm run guide가 자동으로 표시합니다.
+  parameters: { layout: 'centered' },
   args: {
     size: 'md',
     error: false,

@@ -19,5 +19,12 @@
   - Boolean 속성(loading 등)의 기본값도 같게 한다.
   - 텍스트 속성(label 등)의 Figma 기본 글자는 예시 문구이므로 코드 기본값으로 쓰지 않는다. (코드는 필수 props로 받는다)
 
+## 검사·가이드 자동화
+- 작업이 끝나면 `npm run sync`를 실행해서 통과하는지 확인한다. (토큰 변환 → 가이드 생성 → 검사)
+- `src/docs/generated/`는 자동 생성 파일이라 직접 수정하지 않는다.
+- `design-guide/rules/*.md`(사용 규칙 Do/Don't)는 사용자가 직접 쓰는 파일이라 임의로 고치거나 덮어쓰지 않는다.
+- 하드코딩이 꼭 필요하면 같은 줄이나 바로 위 줄에 `예외: 이유` 주석을 쓰고, 사용자에게 알린다.
+- 새 컴포넌트를 만들면 `design-audit/config.json`의 `components`에 추가하고, Figma 컴포넌트 정보(`figma-tokens/components.json`)를 다시 내보낸다.
+
 ## 비밀 파일
 - `.env` 같은 비밀 파일은 절대 commit하지 않는다. (`.gitignore`에 등록되어 있다)
