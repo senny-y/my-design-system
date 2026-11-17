@@ -1,0 +1,135 @@
+/*
+ * 자동 생성 · 직접 수정 금지
+ * 원본 파일: figma-tokens/variables.json
+ * 다시 만들기: npm run tokens
+ */
+
+/* primitive · 모드: Mode 1 */
+:root {
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-300: #A5B4FC;
+  --color-primary-500: #5B67F1;
+  --color-primary-600: #3E46D6;
+  --color-primary-700: #3036B0;
+
+  --color-neutral-0: #FFFFFF;
+  --color-neutral-50: #F7F7F8;
+  --color-neutral-100: #EEEEF0;
+  --color-neutral-200: #DEDEE2;
+  --color-neutral-400: #9A9AA3;
+  --color-neutral-600: #5C5C66;
+  --color-neutral-800: #2E2E35;
+  --color-neutral-900: #18181C;
+
+  --color-red-50: #FEF2F2;
+  --color-red-600: #D92D20;
+
+  --color-green-50: #ECFDF3;
+  --color-green-600: #067647;
+
+  --color-orange-50: #FFFAEB;
+  --color-orange-600: #B54708;
+}
+
+/* semantic · 모드: light */
+:root,
+[data-theme="light"] {
+  --bg-default: var(--color-neutral-0);
+  --bg-subtle: var(--color-neutral-50);
+  --bg-primary: var(--color-primary-600);
+  --bg-primary-hover: var(--color-primary-700);
+  --bg-disabled: var(--color-neutral-100);
+
+  --text-default: var(--color-neutral-900);
+  --text-subtle: var(--color-neutral-600);
+  --text-on-primary: var(--color-neutral-0);
+  --text-disabled: var(--color-neutral-400);
+
+  --border-default: var(--color-neutral-200);
+  --border-focus: var(--color-primary-500);
+  --border-error: var(--color-red-600);
+
+  --status-success-bg: var(--color-green-50);
+  --status-success-text: var(--color-green-600);
+  --status-error-bg: var(--color-red-50);
+  --status-error-text: var(--color-red-600);
+  --status-warning-bg: var(--color-orange-50);
+  --status-warning-text: var(--color-orange-600);
+  --status-info-bg: var(--color-primary-50);
+  --status-info-text: var(--color-primary-600);
+}
+
+/* dimension · 모드: Mode 1 */
+:root {
+  --spacing-1: 1px;
+  --spacing-2: 2px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-40: 40px;
+
+  --radius-4: 4px;
+  --radius-8: 8px;
+  --radius-12: 12px;
+  --radius-999: 999px;
+
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+
+  --line-height-16: 16px;
+  --line-height-20: 20px;
+  --line-height-24: 24px;
+  --line-height-28: 28px;
+  --line-height-32: 32px;
+
+  --font-weight-400: 400;
+  --font-weight-600: 600;
+
+  --size-16: 16px;
+  --size-20: 20px;
+  --size-24: 24px;
+}
+
+/* 텍스트 스타일 · font-family는 Figma 변수가 없어 포함하지 않음 */
+.text-heading-lg {
+  font-size: var(--font-size-24);
+  line-height: var(--line-height-32);
+  font-weight: var(--font-weight-600);
+}
+
+.text-heading-md {
+  font-size: var(--font-size-20);
+  line-height: var(--line-height-28);
+  font-weight: var(--font-weight-600);
+}
+
+.text-body-md {
+  font-size: var(--font-size-16);
+  line-height: var(--line-height-24);
+  font-weight: var(--font-weight-400);
+}
+
+.text-body-sm {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+  font-weight: var(--font-weight-400);
+}
+
+.text-label-md {
+  font-size: var(--font-size-14);
+  line-height: var(--line-height-20);
+  font-weight: var(--font-weight-600);
+}
+
+.text-label-sm {
+  font-size: var(--font-size-12);
+  line-height: var(--line-height-16);
+  font-weight: var(--font-weight-600);
+}
